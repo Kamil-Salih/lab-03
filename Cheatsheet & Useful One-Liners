@@ -1,0 +1,20 @@
+# Quick helpers
+alias ll='ls -la'
+rot13() { echo "$1" | tr 'A-Za-z' 'N-ZA-Mn-za-m'; }
+up() { ping -c1 "$1" &>/dev/null && echo "$1 is up" || echo "$1 is down"; }
+
+# Basic network enumerate (change subnet)
+subnet="192.168.1"
+for i in {1..254}; do (ping -c1 -W1 $subnet.$i &>/dev/null && echo "[+] $subnet.$i") & done; wait
+
+# Extract emails from text files
+grep -Eo "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}" *.txt | sort -u
+
+# Word frequency
+curl -sL example.com | tr -cs '[:alnum:]' '\n' | sort | uniq -c | sort -nr | head
+
+# xargs example: request a list of urls
+cat urls.txt | xargs -n1 -P4 curl -I
+
+# Hash a string
+python3 -c "import hashlib; print(hashlib.sha256(b'admin').hexdigest())"
