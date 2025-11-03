@@ -65,3 +65,17 @@ rot13() { echo "$1" | tr 'A-Za-z' 'N-ZA-Mn-za-m'; }
 
 rot13 "Hello World"
 rot13 "Uryyb Jbeyq"
+
+
+
+
+check_ips() {
+  > alive_hosts.txt
+  grep -Eo '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' "$1" | while read ip; do
+    (ping -c1 -W1 "$ip" &>/dev/null && echo "$ip" >> alive_hosts.txt) &
+  done
+  wait
+}
+
+check_ips ip_list.txt
+cat alive_hosts.txt
