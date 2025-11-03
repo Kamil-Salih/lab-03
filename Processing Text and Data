@@ -1,0 +1,12 @@
+Examples
+# find users with bash shells
+cat /etc/passwd | grep bash | cut -d: -f1
+
+# word frequency from webpage
+curl -sL example.com | tr -cs '[:alnum:]' '\n' | sort | uniq -c | sort -nr | head
+xargs examples
+# ping two IPs from a single line
+echo "8.8.8.8 1.1.1.1" | xargs -n1 ping -c1
+
+# fetch headers for a list of urls
+cat urls.txt | xargs -n1 curl -I

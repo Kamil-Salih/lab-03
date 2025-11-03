@@ -1,0 +1,5 @@
+Given /etc/passwd, list usernames that begin with s and output them sorted and unique.
+
+Hint:
+
+grep '^s' /etc/passwd | cut -d: -f1 | sort | uniq
