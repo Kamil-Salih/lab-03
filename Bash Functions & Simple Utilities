@@ -1,0 +1,67 @@
+Example 1 — ping_sweep()
+
+
+ping_sweep() {
+  subnet="172.17.0"
+  for i in {1..10}; do
+    ip="$subnet.$i"
+    (ping -c1 -W1 $ip &>/dev/null && echo "[+] $ip alive") &
+  done
+  wait
+}
+
+ping_sweep
+
+
+
+ping_sweep() {
+  subnet="$1"
+  for i in {1..10}; do
+    ip="$subnet.$i"
+    (ping -c1 -W1 $ip &>/dev/null && echo "[+] $ip alive") &
+  done
+  wait
+}
+
+ping_sweep 10.0.0
+
+
+
+
+# ping_sweep <subnet-prefix>
+# Simple concurrent ping sweep of hosts 1..10 on the given subnet.
+# Example: ping_sweep 10.0.0
+ping_sweep() {
+  subnet="$1"                        # take the subnet prefix from the 1st function arg (e.g. "10.0.0")
+  for i in {1..10}; do               # loop host IDs 1 through 10
+    ip="$subnet.$i"                  # build the full IP address (e.g. "10.0.0.1")
+    (
+      # Run a single ping packet (-c1) and wait up to 1 second for a reply (-W1).
+      # Redirect both stdout and stderr to /dev/null so only successful hosts are printed.
+      # If ping succeeds, print a concise "[+] <ip> alive" message.
+      # The whole test runs in a background subshell so multiple pings run concurrently.
+      ping -c1 -W1 "$ip" &>/dev/null && echo "[+] $ip alive"
+    ) &                               # background the subshell (run concurrently)
+  done
+  wait                               # wait for all background jobs to finish before returning
+}
+
+ping_sweep 10.0.0
+
+
+
+Example 2 — up() simple checker
+
+
+up() { ping -c1 "$1" &>/dev/null && echo "$1 is up" || echo "$1 is down"; }
+
+up 8.8.8.8
+up 172.17.0.1
+
+
+Example 3 — rot13() fun
+
+rot13() { echo "$1" | tr 'A-Za-z' 'N-ZA-Mn-za-m'; }
+
+rot13 "Hello World"
+rot13 "Uryyb Jbeyq"

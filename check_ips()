@@ -1,0 +1,3 @@
+#Create check_ips() that reads a filename and prints only the live IPs found in the file. Save output to alive_hosts.txt.
+#Hint: use grep -Eo to extract IPv4 addresses and ping -c1 -W1 to test them.
+
