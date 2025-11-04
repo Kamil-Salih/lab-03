@@ -1,0 +1,29 @@
+IP and Hostname Tools
+
+>>> import socket
+>>> socket.gethostbyname('example.com')
+'93.184.216.34'
+
+
+IP Address Math
+
+>>> import ipaddress
+>>> net = ipaddress.ip_network('192.168.1.0/24')
+>>> list(net.hosts())[:3]
+[IPv4Address('192.168.1.1'), IPv4Address('192.168.1.2'), IPv4Address('192.168.1.3')]
+
+
+System Info
+
+>>> import platform
+>>> platform.uname()
+uname_result(system='Linux', node='labvm', release='6.1.0', version='#1 SMP', machine='x86_64')
+
+
+
+Exercise:
+Write a one-liner to print your system’s hostname and kernel version.
+
+
+python3 -c "import platform; print(platform.uname())"
+python3 -c "import platform; u=platform.uname(); print(f'Hostname: {u.node}, Kernel: {u.release}')"

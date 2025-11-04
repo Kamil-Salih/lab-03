@@ -1,0 +1,19 @@
+>>> s = "Cyber"
+>>> s.encode()
+b'Cyber'
+>>> b"Cyber".hex()
+'4379626572'
+>>> bytes.fromhex('4379626572')
+b'Cyber'
+
+
+XOR Trick (CTF Style)
+
+>>> msg = b'flag'
+>>> key = 0x42
+>>> bytes([b ^ key for b in msg])
+b'&.7'
+
+
+Exercise:
+XOR the bytes of b'secret' with the key 0x10 and observe the result.
