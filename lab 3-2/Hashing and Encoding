@@ -29,3 +29,10 @@ Compute the SHA-256 hash of your name.
 Base64-encode the word security.
 
 Decode the string ZmxhZ19pc19saWZlCg== — what does it say?
+
+
+python3 -c "import hashlib; print(hashlib.sha256(b'Kamil').hexdigest())"
+
+python3 -c "import base64; print(base64.b64encode(b'security'))"
+
+python -c "import base64; print(base64.b64decode(b'ZmxhZ19pc19saWZlCg==').decode())"
