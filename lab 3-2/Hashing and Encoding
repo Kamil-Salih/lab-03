@@ -1,0 +1,31 @@
+Using hashlib
+
+>>> import hashlib
+>>> hashlib.md5(b"admin").hexdigest()
+'21232f297a57a5a743894a0e4a801fc3'
+>>> hashlib.sha256(b"password").hexdigest()
+'5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'
+
+
+Base64 Encoding
+
+>>> import base64
+>>> base64.b64encode(b"hello")
+b'aGVsbG8='
+>>> base64.b64decode(b'aGVsbG8=')
+b'hello'
+
+
+One-liners
+
+python3 -c "import hashlib; print(hashlib.sha1(b'cyber').hexdigest())"
+python3 -c "import base64; print(base64.b64encode(b'secret').decode())"
+
+
+
+Exercise:
+Compute the SHA-256 hash of your name.
+
+Base64-encode the word security.
+
+Decode the string ZmxhZ19pc19saWZlCg== — what does it say?

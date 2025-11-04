@@ -1,0 +1,27 @@
+Hex, Binary, and ASCII
+
+>>> int('ff', 16)      # hex → decimal
+255
+>>> hex(255)           # decimal → hex
+'0xff'
+>>> bin(42)            # decimal → binary
+'0b101010'
+>>> chr(65)            # ASCII code → character
+'A'
+>>> ord('A')           # character → ASCII code
+65
+One-liner equivalents
+python3 -c "print(int('ff',16))"
+python3 -c "print(chr(0x41))"
+
+
+
+Exercise:
+Convert the binary 0b11110000 to decimal.
+
+What is the hex value of ASCII 'Z'?
+
+
+python3 -c "print(int('0b11110000', 2))"
+
+python3 -c "print(hex(ord('Z')))"
