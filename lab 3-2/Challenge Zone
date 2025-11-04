@@ -1,0 +1,14 @@
+Try these mini-projects using only the interactive Python shell or python3 -c:
+
+1. Convert the hex string 666c61675f69735f68657265 to ASCII.
+
+2. Compute the SHA1 hash of "CTF2025".
+
+3. Generate a random 12-character password containing at least one symbol.
+
+4. Find the IP of picoctf.com
+
+5. Create a one-liner that prints the current date and time in ISO format.
+
+
+
