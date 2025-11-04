@@ -1,0 +1,15 @@
+>>> import time, datetime
+>>> time.time()  # current Unix timestamp
+1728745600.23
+>>> datetime.datetime.now()
+datetime.datetime(2025, 10, 12, 14, 45, 2)
+>>> datetime.datetime.fromtimestamp(1700000000)
+datetime.datetime(2023, 11, 14, 22, 13, 20)
+
+
+Exercise:
+Convert your birthday to a Unix timestamp.
+
+Convert 1700000000 back to a readable date.
+
+
