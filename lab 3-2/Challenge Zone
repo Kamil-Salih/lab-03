@@ -11,4 +11,18 @@ Try these mini-projects using only the interactive Python shell or python3 -c:
 5. Create a one-liner that prints the current date and time in ISO format.
 
 
+1:
+python3 -c "print(bytes.fromhex('666c61675f69735f68657265').decode())"
+
+2:
+python3 -c "import hashlib; print(hashlib.sha1(b'CTF2025').hexdigest())"
+
+3:
+python3 -c 'import secrets, string; print("".join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*()") for _ in range(12)))'
+
+4:
+python3 -c "import socket; print(socket.gethostbyname('picoctf.com'))"
+
+5:
+python3 -c "import datetime; print(datetime.datetime.now().isoformat())"
 
